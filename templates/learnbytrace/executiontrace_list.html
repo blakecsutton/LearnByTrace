@@ -1,0 +1,35 @@
+{% extends "learnbytrace/base.html" %}
+{% block sidebar %}
+<h1>Welcome</h1>
+<p>Browse through the list of algorithms on the right and when you find one you want to trace,
+  choose a trace to view by clicking the title.</p>
+<h1>Statistics</h1>
+<p>Total traces: {{ statistics.total_traces }}</p>
+<p>Total algorithms: {{ statistics.total_algorithms }}</p>
+<p>Average traces per algorithm: {{ statistics.traces_per_algorithm }}</p>
+<p>Latest trace: {{ statistics.most_recent_trace.title }}
+    ({{ statistics.most_recent_trace.algorithm.title}})</p>
+{% endblock %}
+{% block content %}
+    <h1>Let's trace some algorithms!</h1>
+       
+    {% regroup object_list by algorithm as algorithm_list %}
+      
+    {% for algorithm_group in algorithm_list %}
+         
+      <h2>{{ algorithm_group.grouper.title }}</h2>
+      <p>{{ algorithm_group.grouper.description }} 
+        (<a href="{{ algorithm_group.grouper.pseudo_code.url }}">pseudocode</a>)
+      </p>
+      
+      <ul>
+      {% for trace in algorithm_group.list %}
+       <li><h3><a href="/learnbytrace/traces/{{ trace.id }}/">{{ trace.title }}</a></h3>
+           <p>{{ trace.notes }} (<a href="{{ trace.image.url }}">dataset image</a>,
+             <a href="{{ trace.trace.url }}">trace markup)</a>   
+       </li>
+
+      {% endfor %}
+      </ul>
+    {% endfor %}
+{% endblock %}

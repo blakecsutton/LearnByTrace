@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Learn By Trace!</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}learnbytrace/css/all.css"/>
+    <link rel="shorcut icon" type="image/ico" href="{{ STATIC_URL }}learnbytrace/images/learnbytrace.ico"/>
+    <link href="http://fonts.googleapis.com/css?family=Glegoo" rel='stylesheet' type='text/css'>
+    {% block script %}{% endblock %}
+  </head>
+  <body><div id="header">
+      <ul id="navbar">
+        <li><a href="/learnbytrace/">view all traces</a></li>
+        <li><a href="/learnbytrace/add/">add a trace</a></li>
+        <li><a href="/learnbytrace/howtouse/">how to use</a></li>
+        <li><a href="/learnbytrace/about/">about</a></li>
+      </ul>
+    </div>
+    <div id="sidebar">
+      {% block sidebar %}{% endblock %}
+    </div>
+    <div id="content">
+    {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

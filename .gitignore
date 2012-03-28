@@ -1,0 +1,3 @@
+*.pyc
+static/learnbytrace/css/*
+static/learnbytrace/js/*

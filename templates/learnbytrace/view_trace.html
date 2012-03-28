@@ -1,0 +1,48 @@
+{% extends "learnbytrace/compact_base.html" %}
+{% block script %}<script type="text/javascript" src="{{ STATIC_URL }}learnbytrace/js/all.js"></script>{% endblock %}
+{% block content %}
+<div id="code-view">
+
+ <div id="code-container" tabindex="1">
+ <h3>Pseudocode</h3>
+ <table id="pseudocode">
+   {% for line_number, line in pseudocode_dict.items %}
+    <tr id="pseudocode_{{ line_number }}">
+      <td>{{ line_number }}</td>
+      <td>{{ line|safe }}</td>
+    </tr>
+   {% endfor %}
+ </table>
+ </div>
+</div>
+
+
+<div id="trace-view" >
+  <div id="trace-container" tabindex="2">
+  <h3>Code trace</h3>
+  {% load ssi from future %}
+  {% ssi trace_tree %}
+  </div>
+</div>
+
+<div id="dataset-view">
+  <div id="dataset-container">
+  <h3>Details</h3>
+  <h5>{{ trace.title }}</h5>
+  <p>{{ trace.notes }}</p>
+  <img src="{{ image_url }}">
+<h5>Algorithm</h5>
+<p>{{ trace.algorithm.title }}</p>
+<h5>Files</h5>
+<p>Trace xml: <a href="{{ trace.trace.url }}">here</a> <br>
+Pseudocode txt: <a href="{{ trace.algorithm.pseudo_code.url }}">here</a></p>
+{% if related_traces %}
+<h5>Related traces</h5>
+<p>{% for related_trace in related_traces %}
+      <a href="/learnbytrace/traces/{{ related_trace.id }}">{{ related_trace.title }}</a></li>
+   {% endfor %}
+</p>
+{% endif %}
+  </div>
+</div>
+{% endblock %}

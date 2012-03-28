@@ -1,0 +1,21 @@
+{% extends "learnbytrace/base.html" %}
+{% block sidebar %}
+
+{% endblock %}
+
+{% block content %}
+<h1>Submit a trace!</h1>
+<p>Right now, only the administrator (me!) can add new traces to the system for browsing, but if there's any interest someday I could open it up to more people. The procedure for creating new traces, while it involves multiple steps, is really not that bad once you've done the first one.</p>
+<ol>
+  <li><strong>Find some detailed pseudocode to base your code on, and save it to a text file.</strong> Wikipedia is a decent source. Go ahead and save it into a text file and open it in a code editor so you can see the line numbers. If you want to add extra lines to make it more readable, do it now since that affects the line numbers!</li>
+  <li><strong>Code the algorithm, using the pseudocode as a guide.</strong> This makes it easy to identify which lines of your code match up with high-level actions in the pseudocode, which is important since only the pseudocode gets displayed on the web page. I use Python for this, but of course you could use any language as long as you port the annotation functions. Which brings me to...</li>
+  <li><p><strong>Add annotations to your code.</strong> This is how you generate the XML markup for an execution trace (which is what gets fed into the JavaScript for display on this website). Here's the python file I use: <a href="{{ MEDIA_URL }}learnbytrace/files/TraceLogger.py">TraceLogger.py</a>.</p>
+    <p>Since you're adding the annotations it's up to you how much detail you want to include and which variable updates you care about. I usually log all the control flow structures and any variables mentioned in the pseudocode.
+    Here's my annotated code for <a href="/learnbytrace/traces/4/">a trace of Dijkstra's algorithm</a>: <a href="{{ MEDIA_URL }}learnbytrace/files/Graph_SingleSourceShortestPath.py">Graph_SingleSourceShortestPath.py</a>. There's a lot of annotations! But at least once you have it annotated you can use it on as many different datasets as you want.</p>
+    </li>
+<li><strong>Run the annotated code and dump your markup to a file.</strong> I just run the python file from the command line and dump the output into a file (python super_awesome_algorithm.py >> super_awesome_trace.xml).</li>
+<li><strong>Generate a dataset image (Optional).</strong> This is useful for visual structures like graphs, so you can follow along with the connections as you look at the code trace. You can draw it out and scan it, use Paint, or take the easy route and use <a href="http://www.graphviz.org/">GraphViz</a> if it's any kind of graph-like structure.</li>
+<li><strong>Add the trace to the system, with description, title, and the files you just created.</strong> This is just a matter of filling out a form in the Django admin interface to add the trace to the database so it can be viewed.</li> 
+</ol>
+{% endblock %}
+

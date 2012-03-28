@@ -1,0 +1,126 @@
+@highlighted-line-color: #a1d7cd;
+@view-height: 550px;
+@long-view-height: 650px;
+
+div#trace-view { 
+  
+  float: left;
+ 
+  div#trace-container {
+    
+    &:focus { outline: none; }
+    
+    border: 2px dotted gray;
+    
+    margin: 10px;
+    padding: 5px;
+      
+    overflow-y: scroll;
+    word-wrap: break-word;
+    overflow-x: scroll;
+    
+    width: 600px;
+    height: @view-height;
+    
+    &.long { height: @long-view-height; }
+  }
+  
+  span.button { height: 10px;
+                width: 10px;
+                margin-left: -5px;
+                display: inline-block;
+                cursor: pointer; 
+                }
+  span:focus { outline: none;  }
+                
+  span.expand-button { background: url('../images/plus.png') no-repeat; }
+  span.collapse-button { background: url('../images/minus.png') no-repeat; }
+  
+  span.text { padding: 0; }
+ 
+  /* Show the indentation based on the markup structure */
+  div.collapsible-content { 
+    margin-left: 10px; 
+    
+    span.text + span.text {
+      display: block;
+      margin-top: 5px;
+    }
+  }
+
+  /* class applied by javascript for showing the selected line in the trace tree */
+  div.selected { background-color: @highlighted-line-color; }
+  
+  /* class applied by javascript for collapsing nodes */
+  div.hidden { display: none; }
+  
+  table {
+    border-collapse:collapse; 
+    text-align: center;
+    
+    td { 
+      word-wrap: break-word;
+      padding: 2px;  
+      &:first-child { font-style: italic; }
+    }
+      
+    
+    /* Select all table cells but the ones in the first row */
+    tr + tr { td {   border-top : 1px solid #aaaaaa; } } 
+    
+    /* Select all table cells but the first in each row */
+    td + td{ width: auto; 
+             border-left: 1px solid #aaaaaa; }
+  }
+}
+
+div#code-view {
+  float: left;
+
+  div#code-container {
+    
+    &:focus { outline: none; }
+
+    margin: 10px;
+    padding: 5px;
+    
+    height: @view-height;
+  
+    word-wrap: break-word;
+    overflow-y: scroll;
+    border: 2px dotted gray;
+    
+    &.long { height: @long-view-height; }
+    
+  }
+  
+  table#pseudocode{
+    
+    border-collapse: collapse;
+    
+    td { padding: 0 0 0 5px; }
+
+    tr:nth-child(even) { background-color: darken(#cccccc, 10%); }
+    tr:nth-child(odd) { background-color: #cccccc; }
+    
+    /* class applied by javascript for highlighting lines of pseudocode */
+    tr.highlighted { background-color: @highlighted-line-color; }
+  }
+}
+
+div#dataset-view {
+  
+  float: left;
+  
+  div#dataset-container {
+    margin: 10px;
+    padding: 5px;
+    overflow: scroll;
+    
+    border: 2px dotted gray;
+    height: @view-height;
+    width: 300px;
+    
+    &.long { height: @long-view-height; }
+  }
+}

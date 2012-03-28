@@ -1,0 +1,18 @@
+{% extends "learnbytrace/base.html" %}
+{% block sidebar %}
+<h1>Technical Stuff</h1>
+<p></p>
+{% endblock %}
+
+{% block content %}
+<h1>What do you mean, Learn By Trace?</h1>
+<p>The idea is that some people learn concepts and understand problems better by interacting with them directly: learn by doing. I am certainly one of them, and whenever I crack an algorithms textbook or listen to a long explanation without accompanying figures or demonstrations, my eyes start to glaze over and I feel the need to bang my head on the desk repeatedly.</p>
+<p>So for my own sake, I tried to find a way to reduce the pain factor in learning some of these complicated algorithms that are useful to understand, even if you might never need to code them yourself. Of course the best way to understand an algorithm is to code it, and with a decent textbook there is usually pseudocode that's detailed enough to make it just a matter of implementation.</p>
+<p>But even if you code it and it works under repeated testing, do you really understand it? And if you don't really understand it, how the heck are you supposed to remember it, use it effectively, or analyze its strengths and weaknesses? Or for that matter even be sure you tested it correctly?</p>
+<p>What works for me (and most people) is debugging: tracing the flow of the code while it runs and looking at the intermediate values of variables at different points in the execution. I actually used to do this by hand with pen and paper: it's incredibly inefficient, but effective, if you can force yourself to go through enough of the code.</p>
+<h1>Okay, so why not just use a debugger then?</h1>
+<p>Right, so pen and paper has the advantage of being portable and requiring almost nothing to do it. But it's slow. On the other hand, using a full-blown debugger means using a computer with your whole development environment configured on it. Debuggers can also be a little slow to respond, depending on what kind of system you're using, and for learning algorithms they also give you way more information that you really need, because they're designed for finding and fixing bugs, not understanding what the code's doing on a high level. They are also (by nature) tied to language details, which can distract from the the algorithm. What's clean and understandable in pseudocode can easily become quite complex in actual code, depending on the language and your mastery of it.</p>
+<p>I thought it would be cool if there was something that combined the best of all approaches: interactive (to keep you engaged), portable (you can do it from any computer), flexible (you can apply it to any algorithm), and reusable (you can go back through it as many times as you need until you understand).</p>
+<h1>Enter Learn By Trace</h1>
+<p>
+{% endblock %}

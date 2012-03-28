@@ -1,0 +1,71 @@
+div#header {
+  background: url('../images/learnbytrace_header.png') no-repeat;
+  height: 100px;
+  
+  border-bottom: 1px solid #0da88d;
+  align: middle;
+}
+
+div#compact-header {
+  
+  background: url('../images/learnbytrace_compactheader.png') no-repeat;
+  height: 50px;
+  border-bottom: 1px solid #0da88d;
+  align: middle;
+  
+}
+
+ul#navbar { 
+    margin: 0;
+    padding: 0;
+    margin-left: 400px;
+    margin-top: 10px;
+    list-style: none;
+    font: 14pt 'Glegoo', Arial, Verdana, sans-serif;
+    
+    li { 
+      margin-left: 10px;
+      padding: 0;
+      display: inline;
+      margin-right: 20px;
+    }
+   
+   a:visited{ color: @link-color;}
+}
+
+div#sidebar {
+  float: left;
+  width: 150px;
+  padding: @space;
+  border-right: 0px dashed #525558;
+  
+  h1 { font-size: 110%; 
+       color: @header-text-color; }
+  
+  ul {
+     list-style: none;
+     margin: 0 0 0 5px; 
+     padding: 0;  
+     
+    li {
+      padding: 5px;
+    }
+  }
+  
+  p + p {
+    text-indent: 0;
+  }
+}
+
+div#content {
+  margin-left: 150px + 20px + 10px;
+  margin-right: 300px;
+  
+  ol {
+    li{ margin: 10px; }
+  }
+}
+
+div#extended-content {
+
+}
