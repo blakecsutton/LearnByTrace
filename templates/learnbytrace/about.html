@@ -1,9 +1,4 @@
 {% extends "learnbytrace/base.html" %}
-{% block sidebar %}
-<h1>Technical Stuff</h1>
-<p></p>
-{% endblock %}
-
 {% block content %}
 <h1>What do you mean, Learn By Trace?</h1>
 <p>The idea is that some people learn concepts and understand problems better by interacting with them directly: learn by doing. I am certainly one of them, and whenever I crack an algorithms textbook or listen to a long explanation without accompanying figures or demonstrations, my eyes start to glaze over and I feel the need to bang my head on the desk repeatedly.</p>
@@ -14,5 +9,9 @@
 <p>Right, so pen and paper has the advantage of being portable and requiring almost nothing to do it. But it's slow. On the other hand, using a full-blown debugger means using a computer with your whole development environment configured on it. Debuggers can also be a little slow to respond, depending on what kind of system you're using, and for learning algorithms they also give you way more information that you really need, because they're designed for finding and fixing bugs, not understanding what the code's doing on a high level. They are also (by nature) tied to language details, which can distract from the the algorithm. What's clean and understandable in pseudocode can easily become quite complex in actual code, depending on the language and your mastery of it.</p>
 <p>I thought it would be cool if there was something that combined the best of all approaches: interactive (to keep you engaged), portable (you can do it from any computer), flexible (you can apply it to any algorithm), and reusable (you can go back through it as many times as you need until you understand).</p>
 <h1>Enter Learn By Trace</h1>
-<p>
+<p>LearnByTrace fulfills all of these needs. It accepts an XML file of custom markup tags like &lt;trace&gt;, &lt;variable&gt;, and &lt;loop&gt; along with a pseudocode text file. When you look at a
+  trace, the XML gets included into the page and parsed into a tree structure along with the rest of the Document Object Model. If you're curious, you can see the raw markup from a link on the trace page.</p>
+  <p>After that, the JavaScript code finds the root &lt;trace&gt; tag which contains all of the custom markup, and recursively traverses the tree, adding the wrapper divs, id attributes, CSS style classes, and other formatting that makes the trace interactive.</p>
+  <p>And that's all there is to it! If you're interested in seeing the code for yourself, or in 
+    using and improving it yourself, I've put it up on github <a href="https://github.com/blakecsutton/LearnByTrace">here</a>.</p>
 {% endblock %}
