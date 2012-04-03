@@ -6,5 +6,10 @@
 {% block content %}
 <h1>How to use Learn By Trace</h1>
 <p>First of all I think I should mention that this project is not about teaching anyone to program. If you don't have a firm grasp of basic programming concepts like control flow, varibles, recursion, and function calls then you'll probably get frustrated pretty quickly.</p>
-<h2></h2>
+<p>For this purpose of this website, an <dfn>algorithm</dfn> is a coded up representation of a particular way to solve a problem (for example, Dijkstra's algorithm is a way to find the shortest path between two nodes in an arbitrary graph) and a <dfn>trace</dfn> is a record of one particular time that an algorithm ran on a particular dataset. Thus you can have multiple traces of the same algorithm, which might make different aspects of the algorithm easier to understand.</p>
+<p>Each trace is a sequential log of what the algorithm code does over time, with each level of scope or control flow (like a function call or loop) forming the root of a subtree. So the trace tree usually has many different items which all point to the same line of code, since every repetition of a loop produces a fresh node in the tree, just like repeated debug output printed to the screen.
+</p>  
+<p>Every algorithm starts with the input data and ends with the output result, and you can use the plus and minus icons to expand a node to show either its actual value or its children, depending on whether it is a value (like a variable update or algorithm output) or a control structure (like a function or an if statement). When you click on an item in the trace tree, it will highlight the corresponding line in the pseudocode, or if there is no code line associated with that particular item it will highlight the line associated with its nearest ancestor.
+</p>
+<p>Aside from that, there's not much else to say except that I hope Learn By Trace will help you out and maybe even save you a little frustration! And if you're interested in seeing how the site works or doing something like it yourself, go to the about page <a href="/learnbytrace/about/">here</a>.
 {% endblock %}
