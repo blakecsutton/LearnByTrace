@@ -9,7 +9,13 @@ class Algorithm(models.Model):
     # File that holds the pseudo-code text for display and correlation with the execution trace.
     pseudo_code = models.FileField(upload_to='learnbytrace/files')
     
+    # File that holds the original, un-annotated Python (or other language) code
+    # This is optional at the moment, so that you don't have to provide code, as it is more
+    # of a supplemental material than an essential part of learning.
+    code = models.FileField(blank=True, upload_to='learnbytrace/files') 
+    
     def __unicode__(self):
+      
         return self.title
     
 class ExecutionTrace(models.Model):
