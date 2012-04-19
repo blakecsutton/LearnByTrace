@@ -35,7 +35,11 @@
 <p>{{ trace.algorithm.title }}</p>
 <h5>Files</h5>
 <p>Trace xml: <a href="{{ trace.trace.url }}">here</a> <br>
-Pseudocode txt: <a href="{{ trace.algorithm.pseudo_code.url }}">here</a></p>
+Pseudocode txt: <a href="{{ trace.algorithm.pseudo_code.url }}">here</a> 
+{% if trace.algorithm.code %}
+  <br>Code file: <a href="{{ trace.algorithm.code.url }}">here</a>
+{% endif %}
+</p>
 {% if related_traces %}
 <h5>Related traces</h5>
 <p>{% for related_trace in related_traces %}
